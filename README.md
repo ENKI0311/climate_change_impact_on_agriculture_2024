@@ -1,45 +1,133 @@
-# climate_change_impact_on_agriculture_2024
-Analyzing climate change impact on global agriculture using predictive models.
 
 ---
 
-### Project Overview:
-This project explores the influence of climate change on global agricultural output by leveraging a dataset containing environmental, economic, and agricultural factors. Through data analysis and predictive modeling, we aim to quantify how variables such as temperature, precipitation, CO2 emissions, extreme weather events, and agricultural practices affect crop yield across different regions and countries.
+# Climate Change Impact on Agriculture 2024
 
-### Key Steps and Workflow:
-1. **Data Exploration & Preprocessing**:
-   - Loaded and cleaned the dataset, which includes variables like `Year`, `Country`, `Region`, `Average_Temperature_C`, `Total_Precipitation_mm`, `CO2_Emissions_MT`, and `Crop_Yield_MT_per_HA`.
-   - Conducted exploratory data analysis (EDA) to understand distribution, correlations, and trends across different regions and crop types.
-   - Imputed outliers in various columns such as `Total_Precipitation_mm`, `CO2_Emissions_MT`, and `Crop_Yield_MT_per_HA` to handle skewed data.
+## Overview
+This project analyzes the influence of climate change on global agricultural output using a dataset containing environmental, economic, and agricultural factors. By applying data analysis and predictive modeling, the project quantifies how variables such as temperature, precipitation, CO2 emissions, and extreme weather events impact crop yields across different regions and countries.
 
-2. **Feature Engineering**:
-   - Created dummy variables for categorical features (`Country`, `Region`, `Crop_Type`, `Adaptation_Strategies`) using one-hot encoding.
-   - Applied transformations to manage left-skewed data where necessary, including log transformation for certain columns.
+---
 
-3. **Model Development**:
-   - Implemented several machine learning and deep learning models, including Random Forest, XGBoost, and deep learning models in PyTorch and fastai.
-   - Trained and fine-tuned the models to predict `Crop_Yield_MT_per_HA` based on environmental factors.
-   - Performed hyperparameter tuning, including the use of dropout, weight decay, and learning rate adjustments to improve model performance.
-   - Achieved an R² score of approximately 0.55 after removing and refining features like `Country`.
+## Workflow and Methodology
 
-4. **Evaluation**:
-   - Validated the models using standard metrics such as **R² score** and **Mean Squared Error (MSE)**.
-   - Analyzed the impact of feature selection, particularly the inclusion or exclusion of variables like `Country`, on model performance.
+### 1. **Data Exploration and Preprocessing**
+- Loaded and cleaned the dataset, which includes variables such as:
+  - `Year`, `Country`, `Region`
+  - `Average_Temperature_C`, `Total_Precipitation_mm`
+  - `CO2_Emissions_MT`, `Crop_Yield_MT_per_HA`
+- Conducted **Exploratory Data Analysis (EDA)** to examine distributions, correlations, and trends across regions and crop types.
+- Addressed data quality issues:
+  - **Outlier Handling**: Imputed outliers in `Total_Precipitation_mm`, `CO2_Emissions_MT`, and `Crop_Yield_MT_per_HA`.
+  - **Normalization**: Transformed skewed data (e.g., log transformations) to improve model input.
 
-### Tools & Technologies:
-- **Python**: For data manipulation, preprocessing, and analysis.
-- **PyTorch**: Implemented deep learning models.
-- **fastai**: Simplified model training and provided high-level optimizations.
-- **scikit-learn**: Used for exploratory data analysis and classical machine learning models.
-- **Matplotlib/Seaborn**: For visualizations and plotting results.
+### 2. **Feature Engineering**
+- Created dummy variables for categorical features like:
+  - `Country`, `Region`, `Crop_Type`, `Adaptation_Strategies`
+- Applied one-hot encoding for non-numeric fields.
+- Engineered new features to improve predictions, such as interaction terms and environmental indices.
 
-### Results:
-- Achieved reasonable predictive accuracy with an R² score of 0.55.
-- Developed insights into the effects of climate change factors like CO2 emissions, temperature, and extreme weather on crop yields.
+### 3. **Model Development**
+- Implemented various machine learning and deep learning models, including:
+  - **Random Forest**: For feature importance and baseline predictions.
+  - **XGBoost**: For boosted ensemble learning.
+  - **PyTorch and fastai**: For custom deep learning architectures.
+- Fine-tuned model hyperparameters:
+  - Included **dropout**, **weight decay**, and **learning rate adjustments**.
+  - Optimized feature selection by excluding less impactful features like `Country`.
+- Achieved a final **R² score of 0.55**, demonstrating the model's capability to explain the variance in crop yield.
 
-### Future Work:
-- Further fine-tuning the model with more advanced feature engineering techniques and cross-validation.
-- Exploring more sophisticated architectures such as LSTMs or ensemble learning to improve predictions.
-- Investigating additional external datasets to enrich the analysis and account for other potential factors.
+### 4. **Evaluation**
+- Validated the models using:
+  - **R² Score**: To assess the model's explanatory power.
+  - **Mean Squared Error (MSE)**: To evaluate prediction accuracy.
+- Explored the impact of different features on model performance, particularly variables like `Country` and `Region`.
 
---- 
+---
+
+## Tools and Technologies
+- **Python**: Core language for data manipulation and modeling.
+- **PyTorch & fastai**: Deep learning frameworks for model implementation and optimization.
+- **scikit-learn**: Used for classical machine learning models and EDA.
+- **Matplotlib & Seaborn**: For visualizations and trend analysis.
+
+---
+
+## Results
+- Achieved reasonable predictive accuracy with an **R² score of 0.55**.
+- Highlighted key insights:
+  - Climate variables like CO2 emissions, temperature, and precipitation significantly affect crop yield.
+  - Regional variability in the impact of climate factors on agriculture.
+
+---
+
+## Future Work
+1. **Model Improvements**:
+   - Incorporate advanced architectures such as **LSTMs** or **Transformer models** for time-series analysis.
+   - Explore ensemble methods for combining the strengths of different models.
+2. **External Data Enrichment**:
+   - Integrate additional datasets for improved feature diversity (e.g., soil quality, irrigation patterns).
+3. **Scenario Analysis**:
+   - Model the impact of different climate change scenarios on crop yields.
+4. **Policy Implications**:
+   - Provide actionable insights for governments and organizations to mitigate agricultural risks.
+
+---
+
+## Installation and Usage
+
+### Clone the Repository
+```bash
+git clone <repository_url>
+cd climate_change_impact_on_agriculture_2024
+```
+
+### Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### Run the Project
+1. Preprocess the data:
+   ```bash
+   python preprocess.py
+   ```
+2. Train the model:
+   ```bash
+   python train.py
+   ```
+3. Evaluate the model:
+   ```bash
+   python evaluate.py
+   ```
+
+---
+
+## Project Structure
+```
+climate_change_impact_on_agriculture_2024/
+├── data/                   # Raw and preprocessed datasets
+├── notebooks/              # Jupyter notebooks for EDA and modeling
+├── models/                 # Saved model checkpoints
+├── scripts/                # Preprocessing, training, and evaluation scripts
+├── results/                # Visualizations and evaluation outputs
+├── requirements.txt        # List of dependencies
+└── README.md               # Project documentation
+```
+
+---
+
+## Contributing
+Contributions are welcome! To contribute:
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-name`).
+3. Commit your changes (`git commit -m "Add feature-name"`).
+4. Push to your branch (`git push origin feature-name`).
+5. Submit a pull request.
+
+---
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
